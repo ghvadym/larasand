@@ -1,0 +1,5 @@
+body {
+  @include flexBetweenCol {
+    min-height: 100vh;
+  }
+}

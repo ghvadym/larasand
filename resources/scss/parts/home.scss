@@ -1,0 +1,9 @@
+.intro {
+
+  .intro_image {
+    @include bgImg;
+    height: 70vh;
+    width: 100vw;
+    background-position: top;
+  }
+}

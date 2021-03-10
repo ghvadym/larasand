@@ -1,7 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Vadim
- * Date: 09.03.2021
- * Time: 22:49
- */
+<div class="container">
+    <div id="header" class="header">
+        <a href="{{ route('home') }}" class="header__logo logo">
+            Rotersand Jewelry
+        </a>
+        <nav class="header__nav"></nav>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+
+header {
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(255,255,255,0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+
+  #header {
+    @include flexBetweenRow;
+
+    .header__logo {
+      font-family: 'Redressed', cursive;
+      font-size: 25px;
+    }
+  }
+}
