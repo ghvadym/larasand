@@ -38,3 +38,10 @@
   height: 100%;
   @content
 }
+
+@mixin img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  @content
+}

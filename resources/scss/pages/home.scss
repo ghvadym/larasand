@@ -1,0 +1,30 @@
+.intro {
+
+  .intro_image {
+    @include bgImg;
+    height: 70vh;
+    width: 100vw;
+    background-position: top;
+    display: flex;
+    align-items: center;
+
+    .intro__title {
+      margin-left: 150px;
+
+      & > * {
+        color: white;
+      }
+
+      h2 {
+        font-weight: 600;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      a {
+        text-decoration: underline;
+        font-size: 25px;
+      }
+    }
+  }
+}

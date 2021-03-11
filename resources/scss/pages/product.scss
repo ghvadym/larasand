@@ -1,0 +1,23 @@
+body.single-product {
+  main {
+    padding-top: 100px;
+  }
+}
+
+.single-product {
+
+  .product__gallery {
+
+    .product__img {
+
+    }
+  }
+
+  .product__desc {
+
+    & > * {
+      margin-bottom: 20px;
+      display: block;
+    }
+  }
+}

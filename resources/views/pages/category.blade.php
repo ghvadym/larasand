@@ -1,10 +1,10 @@
-@extends('layout', ['title' => 'Shop', 'body_class' => 'shop'])
+@extends('layout', ['title' => $category->name, 'body_class' => $category->code])
 
 @section('content')
 
-    <section class="related-products section">
+    <section class="products-category section">
         <div class="container">
-            <h1 class="products__title">Featured Products</h1>
+            <h1 class="products__title">{{ $category->name }}</h1>
             <div class="row products__list">
                 <div class="product__item col-md-4">
                     <a href="/" class="product__link">

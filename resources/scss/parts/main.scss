@@ -2,4 +2,18 @@ body {
   @include flexBetweenCol {
     min-height: 100vh;
   }
+
+  main {
+    padding-top: 49px;
+  }
+}
+
+.product__desc {
+  @include flexCenterCol;
+
+  & > * {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+  }
 }
