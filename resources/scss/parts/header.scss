@@ -15,5 +15,16 @@ header {
       font-family: 'Redressed', cursive;
       font-size: 25px;
     }
+
+    .header__nav {
+
+      .nav__list {
+        display: flex;
+
+        .nav__item:not(:last-of-type) {
+          margin-right: 25px;
+        }
+      }
+    }
   }
 }

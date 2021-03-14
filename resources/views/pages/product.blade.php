@@ -6,13 +6,13 @@
         <div class="container">
             <div class="row">
                 <div class="product__gallery col-md-6">
-                    <img src="{{ asset('img/girl_with_jewelry.jpeg') }}" class="product__img" alt="/">
+                    <img src="{{ $product->image ?? asset('img/girl_with_jewelry.jpeg') }}" class="product__img" alt="{{ $product->name }}">
                 </div>
                 <div class="product__desc">
-                    <h1 class="product__title">Kristen #345</h1>
-                    <span class="product__category">Rings</span>
-                    <span class="product__price">$50</span>
-                    <p class="product__text">Description</p>
+                    <h1 class="product__title">{{ $product->name }}</h1>
+                    <span class="product__category">{{ $product->category->name }}</span>
+                    <span class="product__price">${{ $product->price }}</span>
+                    <p class="product__text">{{ $product->description }}</p>
                 </div>
             </div>
         </div>

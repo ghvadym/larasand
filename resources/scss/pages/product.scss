@@ -9,11 +9,13 @@ body.single-product {
   .product__gallery {
 
     .product__img {
-
+      width: 100%;
     }
   }
 
   .product__desc {
+    justify-content: flex-start;
+    align-items: flex-start;
 
     & > * {
       margin-bottom: 20px;
