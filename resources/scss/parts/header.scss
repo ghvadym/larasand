@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
-
 header {
   padding: 10px 0;
   position: fixed;
@@ -20,6 +18,18 @@ header {
 
       .nav__list {
         display: flex;
+
+        .nav__item {
+          border-bottom: 1px solid transparent;
+
+          &:hover {
+            border-bottom: 1px solid;
+          }
+
+          &.active {
+            border-bottom: 1px solid;
+          }
+        }
 
         .nav__item:not(:last-of-type) {
           margin-right: 25px;

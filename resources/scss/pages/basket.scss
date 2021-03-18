@@ -1,0 +1,60 @@
+body.basket {
+
+  main {
+    padding-top: 100px;
+  }
+
+  .basket__table {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 2px;
+    box-shadow: 3px 3px 5px 1px rgb(0 0 0 / 10%);
+
+    & > *:not(:last-of-type) {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 0.5px solid rgb(0 0 0 / 10%);
+    }
+
+    .table__row {
+      @include flexBetweenRow;
+
+      & > * {
+        flex: 0 0 33.33%;
+      }
+
+      .row__count {
+        display: flex;
+        justify-content: center;
+
+        .count__btn {
+          @include flexCenterRow;
+          border: 1px solid;
+          width: 20px;
+          height: 20px;
+          border-radius: 2px;
+          margin: 0 3px;
+
+          &:hover {
+            background: black;
+
+            button {
+              color: white;
+            }
+          }
+
+          button {
+            background: transparent;
+          }
+        }
+      }
+
+      .row__price {
+        text-align: right;
+      }
+    }
+  }
+}

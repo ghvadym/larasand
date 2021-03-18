@@ -5,11 +5,14 @@
         </a>
         <nav class="header__nav">
             <ul class="nav__list">
-                <li class="nav__item">
+                <li class="nav__item {{ Route::is('shop') ? 'active' : '' }}">
                     <a href="{{ route('shop') }}">Shop</a>
                 </li>
-                <li>
+                <li class="nav__item {{ Route::is('categories') ? 'active' : '' }}">
                     <a href="{{ route('categories') }}">Categories</a>
+                </li>
+                <li class="nav__item {{ Route::is('basket') ? 'active' : '' }}">
+                    <a href="{{ route('basket') }}">Basket</a>
                 </li>
             </ul>
         </nav>

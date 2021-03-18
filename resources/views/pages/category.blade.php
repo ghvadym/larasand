@@ -5,7 +5,7 @@
     <section class="products-category section">
         <div class="container">
             <h1 class="products__title">{{ $category->name }}</h1>
-            <p>Всего товаров - {{ $category->products->count() }}.</p>
+            <p>Total Items - {{ $category->products->count() }}.</p>
             <div class="row products__list">
                 @foreach($category->products as $product)
 

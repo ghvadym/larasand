@@ -20,6 +20,22 @@ body.single-product {
     & > * {
       margin-bottom: 20px;
       display: block;
+      text-align: left;
+    }
+
+    .form__add-to-card {
+
+      .add-to-card {
+        background: white;
+        border: 1px solid;
+        padding: 5px 15px;
+        border-radius: 2px;
+
+        &:hover {
+          color: white;
+          background: black;
+        }
+      }
     }
   }
 }
