@@ -38,15 +38,16 @@ body {
   background-color: #f5f5f7;
 }
 
-a, a:hover, a:focus {
+a:hover, a:focus {
   cursor: pointer;
   text-decoration: none;
-  color: #000;
-  font-weight: 400;
 }
 
-button {
+a, button {
+  text-decoration: none;
   cursor: pointer;
+  color: black;
+  font-size: 1.1rem;
 }
 
 h1, h2, h3 {
@@ -101,15 +102,22 @@ strong, b {
 
 .btn {
   font-size: 1.1rem;
+  font-weight: 300;
   display: inline-block;
   padding: 7px 15px;
   line-height: 1;
-  border: 1px transparent;
+  border: 1px solid;
   cursor: pointer;
   color: #000;
   min-width: 105px;
   text-align: center;
   border-radius: 3px;
+  transition: ease 0.2s;
+}
+
+.btn:hover {
+  background: black;
+  color: white;
 }
 
 .bg_img {
@@ -224,6 +232,22 @@ strong, b {
     max-width: 24%;
   }
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -263,6 +287,31 @@ body:not(.single-product) .products__list .product__item .product__desc > * {
 
 body:not(.home) main {
   padding-top: 100px;
+}
+
+.alert {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  max-width: 500px;
+  animation: fadeIn 500ms ease;
+  -webkit-animation: fadeIn 500ms ease;
+}
+.alert.success .alert-body {
+  background: #81c784;
+}
+.alert.warning .alert-body {
+  background: #ef5350;
+}
+.alert .alert-body {
+  text-align: center;
+  padding: 10px 20px;
+  border: 1px solid;
+}
+.alert .alert-body p {
+  margin-bottom: 0;
+  text-shadow: 0 0 black;
 }
 
 header {
@@ -341,7 +390,7 @@ footer #footer .footer__logo {
   color: white;
 }
 .intro .intro_image .intro__title h2 {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 40px;
   margin-bottom: 10px;
   letter-spacing: 4px;
@@ -389,9 +438,17 @@ body.single-product main {
 }
 .single-product .product__desc .form__add-to-card .add-to-card {
   background: white;
+  font-size: 1.1rem;
+  display: inline-block;
+  padding: 7px 15px;
+  line-height: 1;
   border: 1px solid;
-  padding: 5px 15px;
-  border-radius: 2px;
+  cursor: pointer;
+  color: #000;
+  min-width: 105px;
+  text-align: center;
+  border-radius: 3px;
+  transition: ease 0.2s;
 }
 .single-product .product__desc .form__add-to-card .add-to-card:hover {
   color: white;
@@ -399,7 +456,7 @@ body.single-product main {
 }
 
 body.basket main {
-  padding-top: 100px;
+  padding-top: 130px;
 }
 body.basket .basket__table {
   max-width: 700px;
@@ -415,7 +472,17 @@ body.basket .basket__table > *:not(:last-of-type) {
   padding-bottom: 15px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
-body.basket .basket__table .table__row {
+body.basket .basket__table .basket__total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+body.basket .basket__table .basket__total .total__price span {
+  border-bottom: 1px solid;
+  font-size: 1.1rem;
+}
+body.basket .basket__table .table__product {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -423,16 +490,16 @@ body.basket .basket__table .table__row {
   align-items: center;
   flex-direction: row;
 }
-body.basket .basket__table .table__row > * {
+body.basket .basket__table .table__product > * {
   flex: 0 0 33.33%;
 }
-body.basket .basket__table .table__row .row__count {
+body.basket .basket__table .table__product .product__count {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   justify-content: center;
 }
-body.basket .basket__table .table__row .row__count .count__btn {
+body.basket .basket__table .table__product .product__count .count__btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -445,17 +512,30 @@ body.basket .basket__table .table__row .row__count .count__btn {
   border-radius: 2px;
   margin: 0 3px;
 }
-body.basket .basket__table .table__row .row__count .count__btn:hover {
+body.basket .basket__table .table__product .product__count .count__btn:hover {
   background: black;
 }
-body.basket .basket__table .table__row .row__count .count__btn:hover button {
+body.basket .basket__table .table__product .product__count .count__btn:hover button {
   color: white;
 }
-body.basket .basket__table .table__row .row__count .count__btn button {
+body.basket .basket__table .table__product .product__count .count__btn button {
   background: transparent;
+  width: 100%;
 }
-body.basket .basket__table .table__row .row__price {
+body.basket .basket__table .table__product .product__price {
   text-align: right;
+}
+
+body.checkout .checkout .checkout__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+body.checkout .checkout .checkout__body > *:not(:last-of-type) {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=app.css.map*/

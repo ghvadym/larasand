@@ -18,6 +18,8 @@ Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('/shop', 'MainController@shop')->name('shop');
 
     Route::get('/basket', 'BasketController@basket')->name('basket');
+    Route::get('/basket/checkout', 'BasketController@basketCheckout')->name('basket-checkout');
+    Route::post('/basket/confirm', 'BasketController@basketConfirm')->name('basket-confirm');
     Route::post('/basket/add/{id}', 'BasketController@basketAdd')->name('basket-add');
     Route::post('/basket/remove/{id}', 'BasketController@basketRemove')->name('basket-remove');
 

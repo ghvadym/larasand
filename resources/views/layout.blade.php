@@ -24,6 +24,10 @@
                 @include('inc.alert')
             @endif
 
+            @if(session('warning'))
+                @include('inc.alert')
+            @endif
+
             @yield('content')
         </main>
 

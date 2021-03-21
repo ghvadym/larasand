@@ -12,4 +12,12 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    public function productCount() {
+        if(!is_null($this->pivot)) {
+            return $this->price * $this->pivot->count;
+        } else {
+            return $this->price;
+        }
+    }
 }

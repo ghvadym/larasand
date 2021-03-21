@@ -2,6 +2,7 @@
 @import "core/mixins";
 @import "core/variables";
 @import "core/default";
+@import "core/animation";
 @import "parts/main";
 @import "parts/header";
 @import "parts/footer";
@@ -11,3 +12,4 @@
 @import "pages/shop";
 @import "pages/product";
 @import "pages/basket";
+@import "pages/checkout";

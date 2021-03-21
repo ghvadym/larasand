@@ -27,9 +27,17 @@ body.single-product {
 
       .add-to-card {
         background: white;
+        font-size: 1.1rem;
+        display: inline-block;
+        padding: 7px 15px;
+        line-height: 1;
         border: 1px solid;
-        padding: 5px 15px;
-        border-radius: 2px;
+        cursor: pointer;
+        color: #000;
+        min-width: 105px;
+        text-align: center;
+        border-radius: 3px;
+        transition: ease 0.2s;
 
         &:hover {
           color: white;

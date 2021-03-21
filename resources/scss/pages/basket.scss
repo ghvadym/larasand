@@ -1,7 +1,7 @@
 body.basket {
 
   main {
-    padding-top: 100px;
+    padding-top: 130px;
   }
 
   .basket__table {
@@ -19,16 +19,35 @@ body.basket {
       border-bottom: 0.5px solid rgb(0 0 0 / 10%);
     }
 
-    .table__row {
+    .basket__total {
+      display: flex;
+      justify-content: space-between;
+
+      .total__checkout {
+
+      }
+
+      .total__price {
+
+        span {
+          border-bottom: 1px solid;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .table__product {
       @include flexBetweenRow;
 
       & > * {
         flex: 0 0 33.33%;
       }
 
-      .row__count {
+      .product__count {
         display: flex;
         justify-content: center;
+
+        .count__numb {}
 
         .count__btn {
           @include flexCenterRow;
@@ -48,11 +67,12 @@ body.basket {
 
           button {
             background: transparent;
+            width: 100%;
           }
         }
       }
 
-      .row__price {
+      .product__price {
         text-align: right;
       }
     }

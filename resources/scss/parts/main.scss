@@ -39,3 +39,36 @@ body:not(.home) {
     padding-top: 100px;
   }
 }
+
+.alert {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  max-width: 500px;
+  animation: fadeIn 500ms ease;
+  -webkit-animation: fadeIn 500ms ease;
+
+  &.success {
+    .alert-body {
+      background: #81c784;
+    }
+  }
+
+  &.warning {
+    .alert-body {
+      background: #ef5350;
+    }
+  }
+
+  .alert-body {
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px solid;
+
+    p {
+      margin-bottom: 0;
+      text-shadow: 0 0 black;
+    }
+  }
+}

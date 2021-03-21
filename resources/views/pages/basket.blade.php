@@ -8,9 +8,12 @@
             <div class="basket__table">
                 @foreach($order->products as $product)
 
-                    <div class="table__row">
-                        <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="row__title">{{ $product->name }}</a>
-                        <div class="row__count">
+                    <div class="table__product">
+                        <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__title">
+                            {{ $product->name }}
+                            <span class="product__count-view">({{ $product->pivot->count }} items)</span>
+                        </a>
+                        <div class="product__count">
                             <form action="{{ route('basket-remove', $product) }}" method="post" class="count__btn btn-minus">
                                 @csrf
                                 <button type="submit">-</button>
@@ -20,10 +23,19 @@
                                 <button type="submit">+</button>
                             </form>
                         </div>
-                        <div class="row__price">${{ $product->price }}</div>
+                        <div class="product__price">${{ $product->price }} (Total: ${{ $product->productCount() }})</div>
                     </div>
 
                 @endforeach
+
+                <div class="basket__total">
+                    <div class="total__checkout">
+                        <a href="{{ route('basket-checkout') }}" class="btn btn-checkout">Checkout</a>
+                    </div>
+                    <div class="total__price">
+                        Total Price: <span>${{ $order->totalPrice() }}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,12 @@
+body.checkout {
+
+    .checkout {
+        .checkout__body {
+            @include flexBetweenCol;
+
+            & > *:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
