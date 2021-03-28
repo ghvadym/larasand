@@ -4,8 +4,36 @@ body.checkout {
         .checkout__body {
             @include flexBetweenCol;
 
-            & > *:not(:last-of-type) {
+            .checkout__price {
+                margin-bottom: 35px;
+            }
+        }
+
+        form {
+            @include flexBetweenCol;
+
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px 1px rgb(0 0 0 / 10%);
+            min-width: 370px;
+
+            & > * {
+                width: 100%;
+            }
+
+            & > *:not(h2) {
+                padding: 10px 20px;
+            }
+
+            & > input {
+                border-radius: 3px;
+                border: 1px solid #ccc;
                 margin-bottom: 20px;
+            }
+
+            h2 {
+                text-align: center;
             }
         }
     }

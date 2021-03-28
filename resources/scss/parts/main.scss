@@ -48,6 +48,7 @@ body:not(.home) {
   max-width: 500px;
   animation: fadeIn 500ms ease;
   -webkit-animation: fadeIn 500ms ease;
+  z-index: 100;
 
   &.success {
     .alert-body {

@@ -6,13 +6,13 @@
         <div class="container">
             <div class="checkout__body">
                 <h2 class="checkout__title">Your order #{{ $order->id }}</h2>
-                <strong>Total price: ${{ $order->totalPrice() }}</strong>
-                <h3 class="checkout__subtitle">Please enter your email and name</h3>
+                <strong class="checkout__price">Total price: ${{ $order->totalPrice() }}</strong>
                 <form action="{{ route('basket-confirm') }}" method="post">
-                    @csrf
+                    <h2 class="checkout__subtitle">Enter your email and name</h2>
                     <input type="text" name="name" placeholder="Name">
                     <input type="text" name="phone" placeholder="Phone">
                     <button type="submit" class="btn">Submit</button>
+                    @csrf
                 </form>
             </div>
         </div>

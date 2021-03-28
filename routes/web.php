@@ -13,7 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false,
+]);
+
+
 Route::namespace('App\Http\Controllers')->group(function() {
+    Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
+        Route::get('/orders', 'OrderController@index')->name('orders');
+    });
+
     Route::get('/', 'MainController@index')->name('home');
     Route::get('/shop', 'MainController@shop')->name('shop');
 

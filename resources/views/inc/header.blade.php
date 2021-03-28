@@ -14,6 +14,38 @@
                 <li class="nav__item {{ Route::is('basket') ? 'active' : '' }}">
                     <a href="{{ route('basket') }}">Basket</a>
                 </li>
+
+                {{--Auth--}}
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav__item">
+                            <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav__item">
+                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav__item">
+                        <a href="{{ route('orders') }}">
+                            {{ Auth::user()->name }}
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                @endguest
+                {{--End Auth--}}
+
             </ul>
         </nav>
     </div>

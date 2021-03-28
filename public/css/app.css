@@ -113,6 +113,7 @@ strong, b {
   text-align: center;
   border-radius: 3px;
   transition: ease 0.2s;
+  background: white;
 }
 
 .btn:hover {
@@ -167,7 +168,6 @@ strong, b {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -15px;
 }
 
 .col, .col-6, .col-4, .col-3, .col-md, .col-md-6, .col-md-4, .col-md-3, .col-sm, .col-sm-6, .col-sm-4, .col-sm-3 {
@@ -297,6 +297,7 @@ body:not(.home) main {
   max-width: 500px;
   animation: fadeIn 500ms ease;
   -webkit-animation: fadeIn 500ms ease;
+  z-index: 100;
 }
 .alert.success .alert-body {
   background: #81c784;
@@ -534,8 +535,35 @@ body.checkout .checkout .checkout__body {
   align-items: center;
   flex-direction: column;
 }
-body.checkout .checkout .checkout__body > *:not(:last-of-type) {
+body.checkout .checkout .checkout__body .checkout__price {
+  margin-bottom: 35px;
+}
+body.checkout .checkout form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.1);
+  min-width: 370px;
+}
+body.checkout .checkout form > * {
+  width: 100%;
+}
+body.checkout .checkout form > *:not(h2) {
+  padding: 10px 20px;
+}
+body.checkout .checkout form > input {
+  border-radius: 3px;
+  border: 1px solid #ccc;
   margin-bottom: 20px;
+}
+body.checkout .checkout form h2 {
+  text-align: center;
 }
 
 /*# sourceMappingURL=app.css.map*/
