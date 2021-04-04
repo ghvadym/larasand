@@ -101,8 +101,8 @@ strong, b {
 }
 
 .btn {
+  background: white;
   font-size: 1.1rem;
-  font-weight: 300;
   display: inline-block;
   padding: 7px 15px;
   line-height: 1;
@@ -113,12 +113,17 @@ strong, b {
   text-align: center;
   border-radius: 3px;
   transition: ease 0.2s;
-  background: white;
+}
+
+.btn.sm {
+  font-size: 0.8rem;
+  padding: 5px;
+  min-width: 75px;
 }
 
 .btn:hover {
-  background: black;
   color: white;
+  background: black;
 }
 
 .bg_img {
@@ -370,6 +375,37 @@ footer #footer .footer__logo {
   color: #fff;
 }
 
+form.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.1);
+  min-width: 420px;
+}
+form.form > * {
+  width: 100%;
+}
+form.form > *:not(h2) {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+form.form > button {
+  margin: 0;
+}
+form.form > input:not([type=file]), form.form > textarea {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+form.form h2 {
+  text-align: center;
+}
+
 .intro .intro_image {
   background-size: cover;
   background-position: center;
@@ -564,6 +600,29 @@ body.checkout .checkout form > input {
 }
 body.checkout .checkout form h2 {
   text-align: center;
+}
+
+body.auth .orders__table {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+body.auth .orders__table .table {
+  width: 100%;
+  margin: 20px 0;
+}
+body.auth .orders__table .table tbody tr:not(:last-of-type) > * {
+  border-bottom: 1px solid #ccc;
+}
+body.auth .orders__table .table tbody tr th {
+  font-weight: 400;
+}
+body.auth .orders__table .table tbody tr td > * {
+  display: inline-block;
+}
+body.auth .orders__table .table tbody tr > * {
+  text-align: left;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=app.css.map*/

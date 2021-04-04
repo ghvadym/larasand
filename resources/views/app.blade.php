@@ -16,7 +16,7 @@
 <body class="auth">
 
     <header>
-        @include('inc.header')
+        @include('auth.inc.header')
     </header>
 
     <main>

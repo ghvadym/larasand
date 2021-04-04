@@ -1,12 +1,12 @@
-@extends('app')
+@extends('app', ['title' => 'Orders'])
 
 @section('content')
 
-    <div class="section dash">
+    <div class="section orders">
         <div class="container">
-                <div class="dash__body">
-                    <div class="dash__table">
-                        <div class="card-header">Your Orders</div>
+                <div class="orders__body">
+                    <div class="orders__table">
+                        <h1 class="orders__title">Your Orders</h1>
 
                         <table class="table">
                             <tbody>
