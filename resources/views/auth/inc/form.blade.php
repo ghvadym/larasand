@@ -1,4 +1,4 @@
-<input name="code" type="text" placeholder="Code">
-<input name="name" type="text" placeholder="Name">
-<textarea name="desc" cols="10" rows="3" placeholder="Description"></textarea>
+<input name="code" type="text" placeholder="Code" value="{{ old('code') ?? $category->code ?? '' }}">
+<input name="name" type="text" placeholder="Name" value="{{ old('name') ?? $category->name ?? '' }}">
+<textarea name="description" cols="10" rows="3" placeholder="Description">{{ old('description') ?? $category->description ?? '' }}</textarea>
 <input name="image" type="file">

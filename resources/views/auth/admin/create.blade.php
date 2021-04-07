@@ -1,4 +1,4 @@
-@extends('app', ['title' => 'Create category'])
+@extends('app', ['title' => 'Create category', 'body_class' => 'create-category'])
 
 @section('content')
     <div class="container">

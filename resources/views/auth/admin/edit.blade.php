@@ -1,15 +1,19 @@
-@extends('admin-post', ['title' => 'Edit post - '.$post->title])
+@extends('app', ['title' => 'Edit category - '.$category->name, 'body_class' => 'edit-category'])
 
 @section('content')
     <div class="container">
-        <form action="{{ route('post.update', ['id' => $post->post_id]) }}" method="post" enctype="multipart/form-data">
-            @method('PATCH')
-            <h1>Update post</h1>
+        <div class="row">
+            <div class="col-md-10">
+                <form action="{{ route('categories.update', $category) }}" method="post" enctype="multipart/form-data" class="form">
+                    <h2>Edit Category "{{ $category->name }}"</h2>
 
-            @include('pages.parts.form')
+                    @include('auth.inc.form', $category)
 
-            <input type="submit" class="btn btn-success" value="Update post">
-            @csrf
-        </form>
+                    <button type="submit" class="btn">Edit category</button>
+                    @method('PUT')
+                    @csrf
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

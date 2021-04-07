@@ -1,4 +1,4 @@
-@extends('app', ['title' => 'Categories'])
+@extends('app', ['title' => 'Categories', 'body_class' => 'Categories'])
 
 @section('content')
 
@@ -24,10 +24,9 @@
                                     <td>{{ $category->code }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>
-                                        <a href="{{ route('categories.index') }}" class="btn sm">Open</a>
-                                        <a href="{{ route('categories.index') }}" class="btn sm">Edit</a>
-                                        <form action="{{ route('categories.index') }}" method="post"
-                                              onsubmit="if (confirm('Are you sure?')) {return true} else {return false} ">
+                                        <a href="{{ route('categories.show', $category) }}" class="btn sm">Open</a>
+                                        <a href="{{ route('categories.edit', $category) }}" class="btn sm">Edit</a>
+                                        <form action="{{ route('categories.destroy', $category) }}" method="post">
                                             @csrf
                                             @method('DELETE')
 
