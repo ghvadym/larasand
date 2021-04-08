@@ -7,13 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title }}</title>
+    <title>{{ $title ?? 'Admin' }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/hero.jpeg') }}">
 </head>
-<body class="auth {{ $body_class }}">
+<body class="auth {{ $body_class ?? '' }}">
 
     <header>
         @include('auth.inc.header')

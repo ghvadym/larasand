@@ -13,7 +13,7 @@ ul {padding: 0;margin: 0}
 input:focus {outline: none}
 div {display: block}
 strong, b {font-weight: 800}
-input[type=text], input[type=email], textarea {border-radius: 3px;  border: 1px solid #ccc;padding: 10px 20px;width: 100%;margin-bottom: 20px}
+input[type=text], input[type=email], input[type=password], textarea {border-radius: 3px;  border: 1px solid #ccc;padding: 10px 20px;width: 100%;margin-bottom: 20px}
 input[type=text]:focus, input[type=email]:focus, textarea:focus {outline: none}
 .btn {background: white;font-size: 1.1rem;display: inline-block;padding: 10px 20px;line-height: 1;border: 1px solid;cursor: pointer;color: #000;min-width: 105px;text-align: center;border-radius: 3px;transition: ease 0.2s}
 .btn.sm {font-size: 0.8rem;padding: 5px;min-width: 75px}

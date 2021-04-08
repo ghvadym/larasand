@@ -29,6 +29,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
         Route::resource('categories', 'CategoryController');
+        Route::resource('products', 'ProductController');
         Route::get('/orders', 'OrderController@index')->name('orders')->middleware('is_admin');
 
     });
