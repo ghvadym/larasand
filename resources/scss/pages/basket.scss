@@ -40,7 +40,7 @@ body.basket {
       @include flexBetweenRow;
 
       & > * {
-        flex: 0 0 33.33%;
+        flex: 0 0 24%;
       }
 
       .product__count {

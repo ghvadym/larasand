@@ -9,6 +9,17 @@
 
     <input name="code" type="text" placeholder="Code" value="{{ old('code') ?? $product->code ?? '' }}">
     <input name="name" type="text" placeholder="Name" value="{{ old('name') ?? $product->name ?? '' }}">
+    <select name="category_id">
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}"
+                @isset($product)
+                    @if($product->category_id == $category->id)
+                        selected
+                    @endif
+                @endisset
+            >{{ $category->name }}</option>
+        @endforeach
+    </select>
     <input name="price" type="text" placeholder="Price" value="{{ old('price') ?? $product->price ?? '' }}">
     <textarea name="description" cols="10" rows="3" placeholder="Description">{{ old('description') ?? $product->description ?? '' }}</textarea>
     <input name="image" type="file">

@@ -10,7 +10,7 @@
                 <div class="prod-cat__item col-md-4">
                     <div class="prod-cat__body">
                         <a href="{{ route('category', $category->code) }}" class="prod-cat__img">
-                            <img class="img" src="{{ asset('img/homepage_hero_image.jpg') }}" alt="{{ $category->name }}">
+                            <img width="300" height="250" style="object-fit: cover" src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}">
                         </a>
                         <h3 class="prod-cat__title">{{ $category->name }}</h3>
                     </div>

@@ -36,7 +36,6 @@ body {
 
 a:hover {
   cursor: pointer;
-  border-bottom: 1px solid;
   color: inherit;
 }
 
@@ -95,7 +94,7 @@ strong, b {
   font-weight: 800;
 }
 
-input[type=text], input[type=email], textarea {
+input[type=text], input[type=email], input[type=password], textarea, select {
   border-radius: 3px;
   border: 1px solid #ccc;
   padding: 10px 20px;
@@ -549,7 +548,7 @@ body.basket .basket__table .table__product {
   flex-direction: row;
 }
 body.basket .basket__table .table__product > * {
-  flex: 0 0 33.33%;
+  flex: 0 0 24%;
 }
 body.basket .basket__table .table__product .product__count {
   display: -webkit-box;

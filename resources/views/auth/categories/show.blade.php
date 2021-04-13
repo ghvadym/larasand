@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <td>Image</td>
-                            <td>{{ $category->img }}</td>
+                            <td><img width="150" height="100" style="object-fit: contain" src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}"></td>
                         </tr>
                         <tr>
                             <td>Products</td>

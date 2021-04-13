@@ -23,12 +23,16 @@
                             <td>{{ $product->code }}</td>
                         </tr>
                         <tr>
+                            <td>Category</td>
+                            <td>{{ $product->category->name }}</td>
+                        </tr>
+                        <tr>
                             <td>Description</td>
                             <td>{{ $product->description }}</td>
                         </tr>
                         <tr>
                             <td>Image</td>
-                            <td>{{ $product->img }}</td>
+                            <td><img width="150" height="100" style="object-fit: contain" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"></td>
                         </tr>
                     </tbody>
                 </table>

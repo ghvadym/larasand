@@ -11,7 +11,7 @@
 
                     <div class="product__item col-md-4">
                         <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__link">
-                            <img src="{{ $product->image ?? asset('img/girl_with_jewelry.jpeg') }}" class="img" alt="{{ $product->name }}">
+                            <img src="{{ Storage::url($product->image) }}" class="img" alt="{{ $product->name }}">
                         </a>
                         <div class="product__desc">
                             <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__title">{{ $product->name }}</a>

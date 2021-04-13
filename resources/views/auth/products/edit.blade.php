@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <form action="{{ route('categories.update', $product) }}" method="post" enctype="multipart/form-data" class="form">
+                <form action="{{ route('products.update', $product) }}" method="post" enctype="multipart/form-data" class="form">
                     <h2>Edit Product "{{ $product->name }}"</h2>
 
                     @include('auth.inc.form', $product)

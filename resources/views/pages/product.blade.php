@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="product__gallery">
-                        <img src="{{ $product->image ?? asset('img/girl_with_jewelry.jpeg') }}" class="product__img" alt="{{ $product->name }}">
+                        <img src="{{ Storage::url($product->image) }}" class="product__img" alt="{{ $product->name }}">
                     </div>
                 </div>
                 <div class="col-md-6">
