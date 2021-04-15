@@ -16,17 +16,19 @@
     <section class="products section">
         <div class="container">
             <h1 class="products__title">Featured Products</h1>
-            <div class="row products__list">
+            <div class="cards__list row">
                 @foreach($products as $product)
 
-                    <div class="product__item col-md-4">
-                        <a href="{{ route('category', $product->category->code) }}/{{ $product->code }}" class="product__link">
-                            <img height="300" src="{{ Storage::url($product->image) }}" class="img" alt="{{ $product->name }}">
-                        </a>
-                        <div class="product__desc">
-                            <a href="{{ route('category', $product->category->code) }}" class="product__category">{{ $product->category->name }}</a>
-                            <a href="{{ route('category', $product->category->code) }}/{{ $product->code }}" class="product__title">{{ $product->name }}</a>
-                            <span class="product__price">${{ $product->price }}</span>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="{{ route('category', $product->category->code) }}/{{ $product->code }}" class="card__img">
+                                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+                            </a>
+                            <div class="card__info">
+                                <a href="{{ route('category', $product->category->code) }}/{{ $product->code }}" class="card__name">{{ $product->name }}</a>
+                                <a href="{{ route('category', $product->category->code) }}" class="card__cat">{{ $product->category->name }}</a>
+                                <span class="card__price">${{ $product->price }}</span>
+                            </div>
                         </div>
                     </div>
 

@@ -2,18 +2,16 @@
 
 @section('content')
 
-<section class="products-categories section">
+<section class="section">
     <div class="container">
-        <div class="prod-cat__list row">
+        <div class="cats__list row">
             @foreach($categories as $category)
 
-                <div class="prod-cat__item col-md-4">
-                    <div class="prod-cat__body">
-                        <a href="{{ route('category', $category->code) }}" class="prod-cat__img">
-                            <img width="300" height="250" style="object-fit: cover" src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}">
-                        </a>
-                        <h3 class="prod-cat__title">{{ $category->name }}</h3>
-                    </div>
+                <div class="col-md-4">
+                    <a class="cat" href="{{ route('category', $category->code) }}">
+                        <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}">
+                        <h3 class="cat__name">{{ $category->name }}</h3>
+                    </a>
                 </div>
 
             @endforeach

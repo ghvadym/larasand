@@ -79,16 +79,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+
+        Storage::delete($product->image);
         $imageLink = $request->file('image')->store('products');
         $params = $request->all();
         $params['image'] = $imageLink;
-
-        if(!empty($product->image)) {
-            $product->create($request->image);
-        } else {
-            Storage::delete($product->image);
-            $product->update($params);
-        }
+        $product->update($params);
 
         return redirect()->route('products.index');
     }
