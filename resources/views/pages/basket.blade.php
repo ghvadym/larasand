@@ -9,8 +9,8 @@
                 @foreach($order->products as $product)
 
                     <div class="table__product">
-                        <a href="{{ route('product', [$product->category->code, $product->code]) }}">
-                            <img width="50px" height="50px" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+                        <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__img">
+                            <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
                         </a>
                         <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__title">
                             {{ $product->name }}

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -36,12 +37,17 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $imageLink = $request->file('image')->store('categories');
         $params = $request->all();
-        $params['image'] = $imageLink;
+        unset($params['image']);
+
+        if($request->has('image')) {
+            $imageLink = $request->file('image')->store('categories');
+            $params['image'] = $imageLink;
+        }
         Category::create($params);
+
         return redirect()->route('categories.index');
     }
 
@@ -74,7 +80,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
         Storage::delete($category->image);
         $imageLink = $request->file('image')->store('categories');

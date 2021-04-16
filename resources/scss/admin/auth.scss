@@ -37,14 +37,21 @@ body.auth {
 
                 tr {
 
-                    td > * {
-                        margin: 5px 0;
-                    }
+                    td {
+                        & > * {
+                            margin: 5px 0;
+                        }
 
-                    td.btn_wrap {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
+                        &.btn_wrap {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
+
+                        & > img {
+                            width: 200px;
+                            height: 200px;
+                        }
                     }
                 }
             }

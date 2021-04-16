@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <div class="row">
+            <div class="table__wrap">
                 <table class="table">
                     <tbody>
                         <tr>

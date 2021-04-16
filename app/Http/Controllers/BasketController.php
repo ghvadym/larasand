@@ -13,6 +13,8 @@ class BasketController extends Controller
         $orderId = session('orderId');
         if(!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
+        } else {
+            return redirect()->route('home')->with('warning', 'Your basket is empty. Please add to card some products');
         }
         return view('pages.basket', compact('order'));
     }

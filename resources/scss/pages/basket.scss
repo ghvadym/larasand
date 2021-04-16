@@ -5,13 +5,13 @@ body.basket {
   }
 
   .basket__table {
-    max-width: 700px;
+    min-width: 800px;
     width: 100%;
     margin: 0 auto;
     background-color: #fff;
     padding: 25px;
     border-radius: 2px;
-    box-shadow: 3px 3px 5px 1px rgb(0 0 0 / 10%);
+    box-shadow: $box-shadow;
 
     & > *:not(:last-of-type) {
       margin-bottom: 15px;
@@ -68,12 +68,20 @@ body.basket {
           button {
             background: transparent;
             width: 100%;
+            line-height: 1;
           }
         }
       }
 
       .product__price {
         text-align: right;
+      }
+
+      .product__img {
+          img {
+              width: 100px;
+              height: 100px;
+          }
       }
     }
   }
