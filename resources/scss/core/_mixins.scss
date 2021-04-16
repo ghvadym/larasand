@@ -18,7 +18,7 @@
 
 @mixin flexStretchRow {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
@@ -55,4 +55,11 @@
   height: auto;
   object-fit: contain;
   @content
+}
+
+@mixin AbsCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

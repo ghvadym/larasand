@@ -15,7 +15,8 @@ class MainController extends Controller
     }
 
     public function shop() {
-        return view('pages.shop');
+        $products = Product::get();
+        return view('pages.shop', compact('products'));
     }
 
     public function categories() {

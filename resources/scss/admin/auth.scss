@@ -1,0 +1,54 @@
+body.login, body.register {
+    main {
+        padding: 0;
+    }
+}
+
+.auth-form {
+    @include AbsCenter;
+    top: 45%;
+    width: 330px;
+    padding: 30px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+
+    .form__head {
+        text-align: center;
+    }
+
+    form {
+        .form__group.check {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+body.auth {
+
+    .table__wrap {
+        min-width: 900px;
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+
+            tbody {
+
+                tr {
+
+                    td > * {
+                        margin: 5px 0;
+                    }
+
+                    td.btn_wrap {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                }
+            }
+        }
+    }
+}
+

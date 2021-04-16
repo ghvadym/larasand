@@ -2,20 +2,22 @@
 
 @section('content')
 
-    <section class="products-category section">
+    <section class="section">
         <div class="container">
-            <h1 class="products__title">{{ $category->name }}</h1>
+            <h1>{{ $category->name }}</h1>
             <p>Total Items - {{ $category->products->count() }}.</p>
-            <div class="row products__list">
+            <div class="cards__list row">
                 @foreach($category->products as $product)
 
-                    <div class="product__item col-md-4">
-                        <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__link">
-                            <img src="{{ Storage::url($product->image) }}" class="img" alt="{{ $product->name }}">
-                        </a>
-                        <div class="product__desc">
-                            <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__title">{{ $product->name }}</a>
-                            <span class="product__price">${{ $product->price }}</span>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="card__img">
+                                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+                            </a>
+                            <div class="card__info">
+                                <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="card__name">{{ $product->name }}</a>
+                                <span class="card__price">${{ $product->price }}</span>
+                            </div>
                         </div>
                     </div>
 

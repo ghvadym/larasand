@@ -128,6 +128,10 @@ input[type=text]:focus, input[type=email]:focus, textarea:focus {
   min-width: 75px;
 }
 
+.btn.full {
+  width: 100%;
+}
+
 .btn:hover {
   color: white;
   background: black;
@@ -162,16 +166,18 @@ img {
 
 tbody tr td, tbody tr th {
   text-align: left;
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 tbody tr th {
   font-weight: 500;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  min-width: 40px;
 }
 
-tbody tr:not(:last-of-type) td {
-  border-bottom: 1px solid #ccc;
+tbody tr td {
+  border: 1px solid #ccc;
+  min-width: 40px;
 }
 
 .container {
@@ -298,7 +304,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
@@ -334,7 +340,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
@@ -676,32 +682,45 @@ body.checkout .checkout form h2 {
   text-align: center;
 }
 
-body.auth .orders__table {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
+body.login main, body.register main {
+  padding: 0;
 }
-body.auth .orders__table .table {
+
+.auth-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  width: 330px;
+  padding: 30px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.1);
+}
+.auth-form .form__head {
+  text-align: center;
+}
+.auth-form form .form__group.check {
+  margin-bottom: 15px;
+}
+
+body.auth .table__wrap {
+  min-width: 900px;
+}
+body.auth .table__wrap .table {
   width: 100%;
   margin: 20px 0;
 }
-body.auth .orders__table .table tbody tr:not(:last-of-type) > * {
-  border-bottom: 1px solid #ccc;
+body.auth .table__wrap .table tbody tr td > * {
+  margin: 5px 0;
 }
-body.auth .orders__table .table tbody tr th {
-  font-weight: 400;
-}
-body.auth .orders__table .table tbody tr td > * {
-  display: inline-block;
-}
-body.auth .orders__table .table tbody tr > * {
-  text-align: left;
-  padding: 5px;
-}
-
-body.show .table {
-  max-width: 300px;
-  width: 100%;
+body.auth .table__wrap .table tbody tr td.btn_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /*# sourceMappingURL=app.css.map*/
