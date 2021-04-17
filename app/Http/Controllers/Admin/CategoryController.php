@@ -82,10 +82,16 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        Storage::delete($category->image);
-        $imageLink = $request->file('image')->store('categories');
+
         $params = $request->all();
-        $params['image'] = $imageLink;
+        unset($params['image']);
+
+        if($request->has('image')) {
+            Storage::delete($category->image);
+            $imageLink = $request->file('image')->store('categories');
+            $params['image'] = $imageLink;
+        }
+
         $category->update($params);
 
         return redirect()->route('categories.index');

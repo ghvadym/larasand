@@ -5,13 +5,13 @@
         </a>
         <nav class="header__nav">
             <ul class="nav__list">
-                <li class="nav__item {{ Route::is('shop') ? 'active' : '' }}">
+                <li class="nav__item {{ Route::currentRouteNamed('shop') ? 'active' : '' }}">
                     <a href="{{ route('shop') }}">Shop</a>
                 </li>
-                <li class="nav__item {{ Route::is('categories') ? 'active' : '' }}">
+                <li class="nav__item {{ Route::currentRouteNamed('categories*') ? 'active' : '' }}">
                     <a href="{{ route('categories') }}">Categories</a>
                 </li>
-                <li class="nav__item {{ Route::is('basket') ? 'active' : '' }}">
+                <li class="nav__item {{ Route::currentRouteNamed('basket*') ? 'active' : '' }}">
                     <a href="{{ route('basket') }}">Basket</a>
                 </li>
 

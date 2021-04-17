@@ -23,12 +23,17 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'code' => 'required',
+        $rules = [
+            'code' => 'required | unique:products,code',
             'name' => 'required',
-            'image' => 'required',
             'category_id' => 'required',
-            'price' => 'required',
+            'price' => 'required | numeric',
         ];
+
+        if($this->route()->named('products.update')) {
+            $rules['code'] .= ', ' . $this->route()->parameter('product')->id;
+        }
+
+        return $rules;
     }
 }

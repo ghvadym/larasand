@@ -41,10 +41,15 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $imageLink = $request->file('image')->store('products');
         $params = $request->all();
-        $params['image'] = $imageLink;
+        unset($params['image']);
+
+        if($request->has('image')) {
+            $imageLink = $request->file('image')->store('products');
+            $params['image'] = $imageLink;
+        }
         Product::create($params);
+
         return redirect()->route('products.index');
     }
 
@@ -80,10 +85,15 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        Storage::delete($product->image);
-        $imageLink = $request->file('image')->store('products');
         $params = $request->all();
-        $params['image'] = $imageLink;
+        unset($params['image']);
+
+        if($request->has('image')) {
+            Storage::delete($product->image);
+            $imageLink = $request->file('image')->store('products');
+            $params['image'] = $imageLink;
+        }
+
         $product->update($params);
 
         return redirect()->route('products.index');

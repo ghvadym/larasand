@@ -23,11 +23,16 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'code' => 'required',
+        $rules = [
+            'code' => 'required | unique:categories,code',
             'name' => 'required',
-            'image' => 'required',
             'description' => 'min:5 | max:10000'
         ];
+
+        if($this->route()->named('categories.update')) {
+            $rules['code'] .= ', ' . $this->route()->parameter('category')->id;
+        }
+
+        return $rules;
     }
 }
