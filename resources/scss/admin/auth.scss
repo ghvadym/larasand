@@ -29,6 +29,10 @@ body.auth {
     .table__wrap {
         min-width: 900px;
 
+        * {
+            vertical-align: top;
+        }
+
         .table {
             width: 100%;
             margin: 20px 0;

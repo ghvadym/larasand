@@ -15,6 +15,7 @@
                         <th>Phone</th>
                         <th>Total Price</th>
                         <th>Time</th>
+                        <th>Action</th>
                     </tr>
 
                     @foreach($orders as $order)
@@ -25,6 +26,7 @@
                             <td>{{ $order->name }}</td>
                             <td>${{ $order->totalPrice() }}</td>
                             <td>{{ $order->created_at->format('d/m/Y G:i') }}</td>
+                            <td><a href="{{ route('orders.show' , $order) }}" class="btn sm">Open</a></td>
                         </tr>
 
                     @endforeach

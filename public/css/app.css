@@ -695,6 +695,9 @@ body.login main, body.register main {
 body.auth .table__wrap {
   min-width: 900px;
 }
+body.auth .table__wrap * {
+  vertical-align: top;
+}
 body.auth .table__wrap .table {
   width: 100%;
   margin: 20px 0;

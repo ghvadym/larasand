@@ -31,6 +31,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
         Route::resource('categories', 'CategoryController');
         Route::resource('products', 'ProductController');
         Route::get('/orders', 'OrderController@index')->name('orders')->middleware('is_admin');
+        Route::get('/orders/{order}', 'OrderController@show')->name('orders.show')->middleware('is_admin');
 
     });
 
@@ -54,3 +55,4 @@ Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('/{category}', 'MainController@category')->name('category');
     Route::get('/{category}/{product}', 'MainController@product')->name('product');
 });
+
