@@ -26,13 +26,23 @@ Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('/shop', 'MainController@shop')->name('shop');
 
     //Admin Panel
-    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    Route::group(['middleware' => 'auth'], function() {
 
-        Route::resource('categories', 'CategoryController');
-        Route::resource('products', 'ProductController');
-        Route::get('/orders', 'OrderController@index')->name('orders')->middleware('is_admin');
-        Route::get('/orders/{order}', 'OrderController@show')->name('orders.show')->middleware('is_admin');
+        Route::group(['namespace' => 'User', 'prefix' => 'user'], function() {
+            Route::get('/orders', 'OrderController@index')->name('orders.user.index');
+            Route::get('/orders/{order}', 'OrderController@show')->name('orders.user.show');
+        });
 
+        Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+
+            Route::group(['middleware' => 'is_admin'], function() {
+                Route::resource('categories', 'CategoryController');
+                Route::resource('products', 'ProductController');
+
+                Route::get('/orders', 'OrderController@index')->name('orders');
+                Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
+            });
+        });
     });
 
     //Basket
