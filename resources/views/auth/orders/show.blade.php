@@ -6,8 +6,10 @@
         <div class="container">
             <div class="table__wrap">
                 <h1>Order №{{ $order->id }}</h1>
-                <p>{{ $order->name }}</p>
-                <p>{{ $order->phone }}</p>
+                <div class="table__head">
+                    <div>Name: {{ $order->name }}</div>
+                    <div>Phone: {{ $order->phone }}</div>
+                </div>
 
                 <table class="table">
                     <tbody>
@@ -18,7 +20,7 @@
                         <th>Phone</th>
                         <th>Price</th>
                         <th>Count</th>
-                        <th>Total Price</th>
+                        <th>Total</th>
                         <th>Time</th>
                     </tr>
 
@@ -26,19 +28,21 @@
 
                         <tr>
                             <td>{{ $product->id }}</td>
-                            <td><img width="150" height="100" style="object-fit: contain" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"></td>
+                            <td><img width="100" height="100" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"></td>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->phone }}</td>
+                            <td>{{ $order->phone }}</td>
                             <td>${{ $product->price }}</td>
-                            {{--<td>{{ $product->productCount() }}</td>--}}
-                            {{--<td>{{ $product->totalPrice() }}</td>--}}
-                            {{--<td>{{ $product->created_at ?? $product->created_at->format('d/m/Y G:i') }}</td>--}}
+                            <td>{{ $product->pivot->count }}</td>
+                            <td>${{ $product->productCount() }}</td>
+                            <td>{{ $order->created_at->format('d/m/Y G:i') }}</td>
                         </tr>
 
                     @endforeach
 
                     </tbody>
                 </table>
+
+                <div class="table__bottom">Total price: ${{ $order->totalPrice() }}</div>
             </div>
         </div>
     </div>

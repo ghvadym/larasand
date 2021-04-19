@@ -5,7 +5,7 @@
     <div class="section">
         <div class="container">
             <div class="table__wrap">
-                <h1>Your Orders</h1>
+                <h1>Orders</h1>
 
                 <table class="table">
                     <tbody>

@@ -698,6 +698,13 @@ body.auth .table__wrap {
 body.auth .table__wrap * {
   vertical-align: top;
 }
+body.auth .table__wrap .table__head > * {
+  font-size: 1.5rem;
+}
+body.auth .table__wrap .table__bottom {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
 body.auth .table__wrap .table {
   width: 100%;
   margin: 20px 0;
@@ -713,8 +720,10 @@ body.auth .table__wrap .table tbody tr td.btn_wrap {
   align-items: flex-start;
 }
 body.auth .table__wrap .table tbody tr td > img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=app.css.map*/

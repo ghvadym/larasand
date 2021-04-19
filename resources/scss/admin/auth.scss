@@ -33,6 +33,17 @@ body.auth {
             vertical-align: top;
         }
 
+        .table__head {
+            > * {
+                font-size: 1.5rem;
+            }
+        }
+
+        .table__bottom {
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+
         .table {
             width: 100%;
             margin: 20px 0;
@@ -53,8 +64,9 @@ body.auth {
                         }
 
                         & > img {
-                            width: 200px;
-                            height: 200px;
+                            width: 100px;
+                            height: 100px;
+                            object-fit: cover;
                         }
                     }
                 }
