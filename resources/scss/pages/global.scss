@@ -28,4 +28,11 @@ form.form {
   h2 {
     text-align: center;
   }
+
+  .checks {
+    @include flexCenterRow;
+    * {
+      padding: 0 10px;
+    }
+  }
 }

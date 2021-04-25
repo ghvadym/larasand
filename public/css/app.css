@@ -485,6 +485,18 @@ form.form > input:not([type=file]), form.form > textarea {
 form.form h2 {
   text-align: center;
 }
+form.form .checks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+form.form .checks * {
+  padding: 0 10px;
+}
 
 .intro .intro_image {
   background-size: cover;

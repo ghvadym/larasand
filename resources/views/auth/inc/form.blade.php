@@ -24,4 +24,13 @@
     <textarea name="description" cols="10" rows="3" placeholder="Description">{{ old('description') ?? $product->description ?? '' }}</textarea>
     <input name="image" type="file">
 
+    <div class="checks">
+        @foreach(['hit' => 'Hit', 'new' => 'New', 'recommended' => 'Recommended'] as $field => $value)
+
+            <label for="{{ $field }}">{{ $value }}</label>
+            <input name="{{ $field }}" id="{{ $field }}" type="checkbox">
+
+        @endforeach
+    </div>
+
 @endif
