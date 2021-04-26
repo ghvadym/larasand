@@ -13,7 +13,7 @@
                             <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
                         </a>
                         <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__title">
-                            {{ $product->name }}
+                            <div>{{ $product->name }}</div>
                             <span class="product__count-view">({{ $product->pivot->count }} items)</span>
                         </a>
                         <div class="product__count">

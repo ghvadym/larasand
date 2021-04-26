@@ -48,6 +48,7 @@ class ProductController extends Controller
             $imageLink = $request->file('image')->store('products');
             $params['image'] = $imageLink;
         }
+
         Product::create($params);
 
         return redirect()->route('products.index');
@@ -92,6 +93,12 @@ class ProductController extends Controller
             Storage::delete($product->image);
             $imageLink = $request->file('image')->store('products');
             $params['image'] = $imageLink;
+        }
+
+        foreach(['new', 'hit', 'recommended'] as $field) {
+            if (!isset($params[$field])) {
+                $params[$field] = 0;
+            }
         }
 
         $product->update($params);

@@ -11,6 +11,7 @@ p:not(:empty) {color: #1e1e1e;margin-bottom: 10px}
 li {list-style: none}
 ul {padding: 0;margin: 0}
 input:focus {outline: none}
+label {cursor:pointer}
 div {display: block}
 strong, b {font-weight: 800}
 input[type=text], input[type=email], input[type=password], textarea, select {border-radius: 3px;  border: 1px solid #ccc;padding: 10px 20px;width: 100%;margin-bottom: 20px}

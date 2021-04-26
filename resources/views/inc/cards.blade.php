@@ -3,6 +3,18 @@
 
         <div class="col-md-4">
             <div class="card">
+                @if($product->isNew())
+                    <div class="card__label label__new">New</div>
+                @endif
+
+                @if($product->isHit())
+                    <div class="card__label label__hit">Hit</div>
+                @endif
+
+                @if($product->isRecommended())
+                    <div class="card__label label__recommend">Recommended</div>
+                @endif
+
                 <a href="{{ route('category', $product->category->code) }}/{{ $product->code }}" class="card__img">
                     <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
                 </a>

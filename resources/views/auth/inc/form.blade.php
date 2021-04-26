@@ -28,7 +28,13 @@
         @foreach(['hit' => 'Hit', 'new' => 'New', 'recommended' => 'Recommended'] as $field => $value)
 
             <label for="{{ $field }}">{{ $value }}</label>
-            <input name="{{ $field }}" id="{{ $field }}" type="checkbox">
+            <input name="{{ $field }}" id="{{ $field }}" type="checkbox"
+
+                   @if(isset($product) && $product->$field === 1)
+                        checked="checked"
+                   @endif
+
+            >
 
         @endforeach
     </div>

@@ -36,3 +36,155 @@ form.form {
     }
   }
 }
+
+body {
+    @include flexBetweenCol;
+    min-height: 100vh;
+}
+
+.cards__list {
+    @include flexStretchRow;
+
+    .card {
+        margin-bottom: 30px;
+        position: relative;
+
+        .card__img {
+            height: 250px;
+            display: block;
+        }
+
+        .card__info {
+            @include flexCenterCol;
+            border: 1px solid rgba(0,0,0,0.2);
+            padding: 10px;
+
+            .card__name {
+                font-size: 1.2rem;
+            }
+
+            .card__cat {
+                font-size: 0.9rem;
+            }
+
+            & > * {
+                margin: 5px 0;
+            }
+        }
+
+        .card__label {
+            position: absolute;
+            top: -15px;
+            background: white;
+            border-radius: 10px;
+            max-width: 250px;
+            text-align: center;
+            padding: 5px 15px;
+            box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+            &.label__new {
+                left: -5px;
+            }
+            &.label__hit {
+                left: 85px;
+            }
+            &.label__recommend {
+                right: -5px;
+            }
+        }
+    }
+}
+
+.cats__list {
+    @include flexStretchRow;
+
+    .cat {
+        background-color: #000;
+        height: 300px;
+        width: 100%;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .cat__name {
+            position: absolute;
+            color: white;
+            margin: 0;
+        }
+
+        .cat__img {
+            display: block;
+        }
+
+        img {
+            filter: brightness(0.5);
+        }
+    }
+}
+
+body:not(.home) {
+    main {
+        padding-top: 100px;
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    max-width: 500px;
+    animation: fadeIn 500ms ease;
+    -webkit-animation: fadeIn 500ms ease;
+    z-index: 100;
+
+    &.success {
+        .alert-body {
+            background: #81c784;
+        }
+    }
+
+    &.warning {
+        .alert-body {
+            background: #ef5350;
+        }
+    }
+
+    .alert-body {
+        text-align: center;
+        padding: 10px 20px;
+        border: 1px solid;
+
+        p {
+            margin-bottom: 0;
+            text-shadow: 0 0 black;
+        }
+    }
+}
+
+.filter {
+    box-shadow: $box-shadow;
+    padding: 20px 25px;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 60px;
+    form {
+        .filter__rows {
+            @include flexBetweenRow;
+            margin: 0 -15px;
+            .filter__box {
+                display: flex;
+                padding: 0 15px;
+                .filter__item {
+                    &:not(:last-of-type) {
+                        margin-right: 15px;
+                    }
+
+                    input {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
