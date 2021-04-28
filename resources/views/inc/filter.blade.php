@@ -26,6 +26,7 @@
             <div class="filter__box">
                 <div class="filter__item">
                     <button class="btn md" type="submit">Filter</button>
+                    <a href="{{ route('shop') }}" class="btn md">Clear</a>
                 </div>
             </div>
         </div>
