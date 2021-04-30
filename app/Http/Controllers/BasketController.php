@@ -22,8 +22,8 @@ class BasketController extends Controller
     public function basketAdd($productId) {
         $orderId = session('orderId');
         if(is_null($orderId)) {
-            $order = Order::create()->id;
-            session(['orderId' => $order]);
+            $order = Order::create();
+            session(['orderId' => $order->id]);
         } else {
             $order = Order::find($orderId);
         }

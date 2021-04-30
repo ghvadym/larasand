@@ -7,7 +7,7 @@
             <h1>{{ $category->name }}</h1>
             <p>Total Items - {{ $category->products->count() }}.</p>
             <div class="cards__list row">
-                @foreach($category->products as $product)
+                @foreach($category->products()->with('category')->get() as $product)
 
                     <div class="col-md-4">
                         <div class="card">

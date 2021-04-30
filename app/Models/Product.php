@@ -23,6 +23,18 @@ class Product extends Model
         }
     }
 
+    public function scopeHit($query) {
+        return $query->where('hit', 1);
+    }
+
+    public function scopeNew($query) {
+        return $query->where('new', 1);
+    }
+
+    public function scopeRecommended($query) {
+        return $query->where('recommended', 1);
+    }
+
     public function setNewAttribute($value) {
         $this->attributes['new'] = $value === 'on' ? 1 : 0;
     }

@@ -16,7 +16,7 @@ class MainController extends Controller
     }
 
     public function shop(ProductsFilterRequest $request) {
-        $productsQuery = Product::query();
+        $productsQuery = Product::with('category');
         if($request->filled('price_from')) {
             $productsQuery->where('price', '>=', $request->price_from);
         }
@@ -25,11 +25,11 @@ class MainController extends Controller
         }
         foreach (['new', 'hit', 'recommended'] as $label) {
             if($request->has($label)) {
-                $productsQuery->where($label, 1);
+                $productsQuery->$label();
             }
         }
 
-        $products = $productsQuery->simplePaginate(2)->withPath('?' . $request->getQueryString());
+        $products = $productsQuery->simplePaginate(9)->withPath('?' . $request->getQueryString());
         return view('pages.shop', compact('products'));
     }
 

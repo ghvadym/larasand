@@ -24,7 +24,7 @@ class OrderController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-        $orders = Order::where('status', 1)->simplePaginate(10);
+        $orders = Order::active()->simplePaginate(10);
         return view('auth.orders.index', compact('orders'));
     }
 

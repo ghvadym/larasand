@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller {
 
     public function index() {
-        $orders = Auth::user()->orders()->get();
+        $orders = Auth::user()->orders()->active()->simplePaginate(10);
         return view('auth.orders.index', compact('orders'));
     }
 
@@ -18,7 +18,7 @@ class OrderController extends Controller {
         if(Auth::user()->orders->contains($order)) {
             return view('auth.orders.show', compact('order'));
         } else {
-            return redirect()->route('orders.user.index')->with('warning', 'You dont\'t have so order');
+            return redirect()->route('orders.user.index')->with('warning', 'You haven\'t some orders');
         }
     }
 }

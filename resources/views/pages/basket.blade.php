@@ -6,7 +6,7 @@
         <div class="container">
             <h1 class="basket__title">Basket</h1>
             <div class="basket__table">
-                @foreach($order->products as $product)
+                @foreach($order->products()->with('category')->get() as $product)
 
                     <div class="table__product">
                         <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="product__img">
