@@ -24,7 +24,7 @@
                         <th>Time</th>
                     </tr>
 
-                    @foreach($order->products as $product)
+                    @foreach($products as $product)
 
                         <tr>
                             <td>{{ $product->id }}</td>

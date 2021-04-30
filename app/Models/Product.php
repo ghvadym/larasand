@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
-    protected $fillable = ['name', 'code', 'price','description', 'image', 'category_id', 'created_at', 'recommended', 'hit', 'new'];
+    protected $fillable = ['name', 'code', 'price','description', 'image', 'category_id', 'created_at', 'recommended', 'hit', 'new', 'count'];
 
     public function category() {
         return $this->belongsTo(Category::class);
@@ -21,6 +23,10 @@ class Product extends Model
         } else {
             return $this->price;
         }
+    }
+
+    public function inStock() {
+        return $this->count > 0 && !$this->trashed();
     }
 
     public function scopeHit($query) {

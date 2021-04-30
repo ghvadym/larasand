@@ -27,6 +27,14 @@
                             <td>{{ $product->category->name }}</td>
                         </tr>
                         <tr>
+                            <td>Price</td>
+                            <td>${{ $product->price }}</td>
+                        </tr>
+                        <tr>
+                            <td>Count</td>
+                            <td>{{ $product->count }}</td>
+                        </tr>
+                        <tr>
                             <td>Description</td>
                             <td>{{ $product->description }}</td>
                         </tr>

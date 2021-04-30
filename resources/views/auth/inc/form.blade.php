@@ -21,6 +21,7 @@
         @endforeach
     </select>
     <input name="price" type="text" placeholder="Price" value="{{ old('price') ?? $product->price ?? '' }}">
+    <input name="count" type="text" placeholder="Count in stock" value="{{ old('count') ?? $product->count ?? '' }}">
     <textarea name="description" cols="10" rows="3" placeholder="Description">{{ old('description') ?? $product->description ?? '' }}</textarea>
     <input name="image" type="file">
 

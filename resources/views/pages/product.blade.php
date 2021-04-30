@@ -15,10 +15,14 @@
                         <h1 class="product__title">{{ $product->name }}</h1>
                         <span class="product__category">{{ $product->category->name }}</span>
                         <span class="product__price">${{ $product->price }}</span>
-                        <form action="{{ route('basket-add', $product) }}" method="post" class="form__add-to-card">
-                            @csrf
-                            <button type="submit" class="add-to-card">Add to Card</button>
-                        </form>
+                        @if($product->inStock())
+                            <form action="{{ route('basket-add', $product) }}" method="post" class="form__add-to-card">
+                                @csrf
+                                <button type="submit" class="add-to-card">Add to Card</button>
+                            </form>
+                        @else
+                            <p><b>{{ $product->name }}</b> isn't stock...</p>
+                        @endif
                         <p class="product__text">{{ $product->description }}</p>
                     </div>
                 </div>
