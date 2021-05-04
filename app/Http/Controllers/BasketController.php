@@ -11,31 +11,28 @@ class BasketController extends Controller
 {
     public function basket() {
         $orderId = session('orderId');
-        if(!is_null($orderId)) {
-            $order = Order::findOrFail($orderId);
-        } else {
-            return redirect()->route('home')->with('warning', 'Your basket is empty. Please add to card some products');
-        }
+        $order = Order::findOrFail($orderId);
+
         return view('pages.basket', compact('order'));
     }
 
-    public function basketAdd($productId) {
+    public function basketAdd(Product $product) {
         $orderId = session('orderId');
         if(is_null($orderId)) {
             $order = Order::create();
             session(['orderId' => $order->id]);
         } else {
-            $order = Order::find($orderId);
+            $order = Order::findOrFail($orderId);
         }
 
-        if($order->products->contains($productId)) {
-            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
+        if($order->products->contains($product->id)) {
+            $pivotRow = $order->products()->where('product_id', $product->id)->first()->pivot;
             $pivotRow->count++;
             $pivotRow->update();
         } else {
-            $order->products()->attach($productId);
+            $order->products()->attach($product->id);
         }
-        $product = Product::find($productId);
+
         if($product) {
             session()->flash('success', 'Product "'.$product->name.'" has been added to basket successfully!');
         } else {
@@ -45,23 +42,20 @@ class BasketController extends Controller
         return redirect()->route('basket');
     }
 
-    public function basketRemove($productId) {
+    public function basketRemove(Product $product) {
         $orderId = session('orderId');
-        if(is_null($orderId)) {
-            return redirect()->route('basket');
-        }
-        $order = Order::find($orderId);
+        $order = Order::findOrFail($orderId);
 
-        if($order->products->contains($productId)) {
-            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
+        if($order->products->contains($product->id)) {
+            $pivotRow = $order->products()->where('product_id', $product->id)->first()->pivot;
             if($pivotRow->count < 2) {
-                $order->products()->detach($productId);
+                $order->products()->detach($product->id);
             } else {
                 $pivotRow->count--;
                 $pivotRow->update();
             }
         }
-        $product = Product::find($productId);
+
         if($product) {
             session()->flash('warning', 'Product "'.$product->name.'" has been deleted from basket');
         }
@@ -71,10 +65,7 @@ class BasketController extends Controller
 
     public function basketCheckout() {
         $orderId = session('orderId');
-        if(is_null($orderId)) {
-            return redirect()->route('home');
-        }
-        $order = Order::find($orderId);
+        $order = Order::findOrFail($orderId);
         if(Auth::check()) {
             $order->user_id = Auth::id();
             $order->save();
@@ -84,10 +75,7 @@ class BasketController extends Controller
 
     public function basketConfirm(Request $request) {
         $orderId = session('orderId');
-        if(is_null($orderId)) {
-            return redirect()->route('home');
-        }
-        $order = Order::find($orderId);
+        $order = Order::findOrFail($orderId);
         $success = $order->saveOrder($request->name, $request->phone);
 
         if($success) {
