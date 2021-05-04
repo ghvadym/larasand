@@ -16,7 +16,8 @@ class OrderController extends Controller {
 
     public function show(Order $order) {
         if(Auth::user()->orders->contains($order)) {
-            return view('auth.orders.show', compact('order'));
+            $products = $order->products()->withTrashed()->get();
+            return view('auth.orders.show', compact('order', 'products'));
         } else {
             return redirect()->route('orders.user.index')->with('warning', 'You haven\'t some orders');
         }

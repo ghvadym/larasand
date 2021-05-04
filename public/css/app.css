@@ -351,6 +351,23 @@ footer #footer .footer__logo {
   color: #fff;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body:not(.home) main {
+  padding-top: 100px;
+  width: 100%;
+}
+body > * {
+  width: 100%;
+}
+
 form.form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -394,16 +411,6 @@ form.form .checks * {
   padding: 0 10px;
 }
 
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .cards__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -420,6 +427,7 @@ body {
 .cards__list .card .card__img {
   height: 250px;
   display: block;
+  background: black;
 }
 .cards__list .card .card__info {
   display: -webkit-box;
@@ -492,10 +500,6 @@ body {
   filter: brightness(0.5);
 }
 
-body:not(.home) main {
-  padding-top: 100px;
-}
-
 .alert {
   position: fixed;
   top: 50px;
@@ -550,6 +554,8 @@ body:not(.home) main {
 }
 .filter form .filter__rows .filter__box .filter__item input {
   margin-bottom: 0;
+  max-width: 125px;
+  vertical-align: middle;
 }
 
 .intro .intro_image {

@@ -34,7 +34,7 @@
                             <td>${{ $product->price }}</td>
                             <td>{{ $product->pivot->count }}</td>
                             <td>${{ $product->productCount() }}</td>
-                            <td>{{ $order->created_at->format('d/m/Y G:i') }}</td>
+                            <td>{{ date('d.m.Y - G:i', strtotime($order->created_at)) }}</td>
                         </tr>
 
                     @endforeach

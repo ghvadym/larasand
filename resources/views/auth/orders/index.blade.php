@@ -25,7 +25,7 @@
                             <td>{{ $order->name }}</td>
                             <td>{{ $order->name }}</td>
                             <td>${{ $order->totalPrice() }}</td>
-                            <td>{{ $order->created_at->format('d/m/Y G:i') }}</td>
+                            <td>{{ date('d.m.Y - G:i', strtotime($order->created_at)) }}</td>
                             <td>
                                 @if(Auth::user()->isAdmin())
                                     <a href="{{ route('orders.show' , $order) }}" class="btn sm">Open</a>
@@ -36,10 +36,10 @@
                         </tr>
 
                     @endforeach
-                    {{ $orders->links() }}
 
                     </tbody>
                 </table>
+                {{ $orders->links() }}
             </div>
         </div>
     </div>

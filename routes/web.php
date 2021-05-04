@@ -39,6 +39,8 @@ Route::namespace('App\Http\Controllers')->group(function() {
                 Route::resource('categories', 'CategoryController');
                 Route::resource('products', 'ProductController');
 
+                Route::get('/reset', 'ResetController@reset')->name('reset');
+
                 Route::get('/orders', 'OrderController@index')->name('orders');
                 Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
             });

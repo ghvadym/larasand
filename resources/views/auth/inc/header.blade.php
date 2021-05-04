@@ -21,6 +21,11 @@
                             Products
                         </a>
                     </li>
+                    <li class="nav__item {{ Route::currentRouteNamed('reset') ? 'active' : '' }}">
+                        <a href="{{ route('reset') }}">
+                            Reset Project
+                        </a>
+                    </li>
                 @endif
 
                 <li class="nav__item">
