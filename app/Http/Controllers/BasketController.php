@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Basket;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -10,9 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class BasketController extends Controller
 {
     public function basket() {
-        $orderId = session('orderId');
-        $order = Order::findOrFail($orderId);
-
+        $order = (new Basket())->getOrder();
         return view('pages.basket', compact('order'));
     }
 
@@ -64,8 +63,7 @@ class BasketController extends Controller
     }
 
     public function basketCheckout() {
-        $orderId = session('orderId');
-        $order = Order::findOrFail($orderId);
+        $order = (new Basket())->getOrder();
         if(Auth::check()) {
             $order->user_id = Auth::id();
             $order->save();
@@ -74,12 +72,11 @@ class BasketController extends Controller
     }
 
     public function basketConfirm(Request $request) {
-        $orderId = session('orderId');
-        $order = Order::findOrFail($orderId);
-        $success = $order->saveOrder($request->name, $request->phone);
+        $basket = new Basket();
+        $success = $basket->saveOrder($request->name, $request->phone);
 
         if($success) {
-            session()->flash('success', 'Your Order #'.$order->id.' has been created successfully!');
+            session()->flash('success', 'Your Order #'.$basket->getOrder()->id.' has been created successfully!');
         } else {
             session()->flash('warning', 'Error 404');
         }
